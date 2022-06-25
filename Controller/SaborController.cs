@@ -1,33 +1,42 @@
 using PizzariaCSharp.Controller.Interfaces;
 using PizzariaCSharp.Model;
+using PizzariaCSharp.Repository.Interfaces;
 
 namespace PizzariaCSharp.Controller
 {
     public class SaborController : ICrudController<Sabor>
     {
-        public Sabor Adicionar(Sabor modelo)
+        private ICrudRepository<Sabor> _repositorySabor;
+
+        public SaborController(ICrudRepository<Sabor> repositorySabor)
         {
-            throw new NotImplementedException();
+            _repositorySabor = repositorySabor;
         }
 
-        public Sabor Atualizar(int id, Sabor modelo)
+        public Sabor Adicionar(Sabor sabor)
         {
-            throw new NotImplementedException();
+            return _repositorySabor.Adicionar(sabor);
+        }
+
+        public Sabor Atualizar(int id, Sabor sabor)
+        {
+            sabor.Id = id;
+            return _repositorySabor.Atualizar(sabor);
         }
 
         public Sabor ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            return _repositorySabor.ObterPorId(id);
         }
 
         public List<Sabor> ObterTodas()
         {
-            throw new NotImplementedException();
+            return _repositorySabor.ObterTodas();
         }
 
         public void Remover(int id)
         {
-            throw new NotImplementedException();
+            _repositorySabor.Remover(id);
         }
     }
 }

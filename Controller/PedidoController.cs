@@ -1,33 +1,42 @@
 using PizzariaCSharp.Controller.Interfaces;
 using PizzariaCSharp.Model;
+using PizzariaCSharp.Repository.Interfaces;
 
 namespace PizzariaCSharp.Controller
 {
     public class PedidoController : ICrudController<Pedido>
     {
-        public Pedido Adicionar(Pedido modelo)
+         private ICrudRepository<Pedido> _repositoryPedido;
+
+        public PedidoController(ICrudRepository<Pedido> repositoryPedido)
         {
-            throw new NotImplementedException();
+            _repositoryPedido = repositoryPedido;
         }
 
-        public Pedido Atualizar(int id, Pedido modelo)
+        public Pedido Adicionar(Pedido pedido)
         {
-            throw new NotImplementedException();
+            return _repositoryPedido.Adicionar(pedido);
+        }
+
+        public Pedido Atualizar(int id, Pedido pedido)
+        {
+            pedido.Id = id;
+            return _repositoryPedido.Atualizar(pedido);
         }
 
         public Pedido ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            return _repositoryPedido.ObterPorId(id);
         }
 
         public List<Pedido> ObterTodas()
         {
-            throw new NotImplementedException();
+            return _repositoryPedido.ObterTodas();
         }
 
         public void Remover(int id)
         {
-            throw new NotImplementedException();
+            _repositoryPedido.Remover(id);
         }
     }
 }
