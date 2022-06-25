@@ -5,7 +5,7 @@ namespace PizzariaCSharp.Controller
 {
     public class PedidoController : ICrudController<Pedido>
     {
-        public Pedido Adcionar(Pedido modelo)
+        public Pedido Adicionar(Pedido modelo)
         {
             throw new NotImplementedException();
         }

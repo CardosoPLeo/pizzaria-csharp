@@ -14,7 +14,7 @@ namespace PizzariaCSharp.Repository
             _sabores = new List<Sabor>();
         }
 
-        public Sabor Adcionar(Sabor sabor)
+        public Sabor Adicionar(Sabor sabor)
         {
             _ultimoId ++;
             sabor.Id = _ultimoId;

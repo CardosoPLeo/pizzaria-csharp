@@ -5,7 +5,7 @@ namespace PizzariaCSharp.Repository
 {
     public class PedidoRepository : ICrudRepository<Pedido>
     {
-        public Pedido Adcionar(Pedido modelo)
+        public Pedido Adicionar(Pedido modelo)
         {
             throw new NotImplementedException();
         }

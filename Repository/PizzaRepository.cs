@@ -5,7 +5,7 @@ namespace PizzariaCSharp.Repository
 {
     public class PizzaRepository : ICrudRepository<Pizza>
     {
-        public Pizza Adcionar(Pizza modelo)
+        public Pizza Adicionar(Pizza modelo)
         {
             throw new NotImplementedException();
         }

@@ -5,7 +5,7 @@ namespace PizzariaCSharp.Controller
 {
     public class SaborController : ICrudController<Sabor>
     {
-        public Sabor Adcionar(Sabor modelo)
+        public Sabor Adicionar(Sabor modelo)
         {
             throw new NotImplementedException();
         }

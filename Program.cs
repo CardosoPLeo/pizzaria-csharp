@@ -15,7 +15,7 @@ var bebida1 = controllerBebida.Adicionar(new Bebida("Coca-cola Lata", 5.00));
 var bebida2 = controllerBebida.Adicionar(new Bebida("Coca-cola 2Lt", 10.00));
 
 //Obter todas as bebidas
-var bebidas = controllerBebida.Obtertodos();
+var bebidas = controllerBebida.ObterTodas();
 
 //Obeter por id
 var bebidaObtida = controllerBebida.ObterPorId(bebida1.Id);
@@ -28,4 +28,4 @@ var bebidaAtualizada = controllerBebida.Atualizar(bebida1.Id, bebida1);
 controllerBebida.Remover(bebida2.Id);
 
 
-var resultado = controllerBebida.Obtertodos();
+var resultado = controllerBebida.ObterTodas();

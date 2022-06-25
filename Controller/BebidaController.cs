@@ -13,9 +13,9 @@ namespace PizzariaCSharp.Controller
             _repositoryBebida = repositoryBebida;
         }
 
-        public Bebida Adcionar(Bebida bebida)
+        public Bebida Adicionar(Bebida bebida)
         {
-            return _repositoryBebida.Adcionar(bebida);
+            return _repositoryBebida.Adicionar(bebida);
         }
 
         public Bebida Atualizar(int id, Bebida bebida)

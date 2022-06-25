@@ -14,7 +14,7 @@ namespace PizzariaCSharp.Repository
             _bebidas = new List<Bebida>();
         }
 
-        public Bebida Adcionar(Bebida bebida)
+        public Bebida Adicionar(Bebida bebida)
         {
             _ultimoId ++;
             bebida.Id = _ultimoId;

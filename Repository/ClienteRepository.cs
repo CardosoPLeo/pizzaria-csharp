@@ -5,7 +5,7 @@ namespace PizzariaCSharp.Repository
 {
     public class ClienteRepository : ICrudRepository<Cliente>
     {
-        public Cliente Adcionar(Cliente modelo)
+        public Cliente Adicionar(Cliente modelo)
         {
             throw new NotImplementedException();
         }
