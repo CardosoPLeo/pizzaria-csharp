@@ -5,29 +5,57 @@ namespace PizzariaCSharp.Repository
 {
     public class PizzaRepository : ICrudRepository<Pizza>
     {
-        public Pizza Adicionar(Pizza modelo)
+        private List<Pizza> _pizzas;
+        
+        private int _ultimoId = 0;
+        
+        public PizzaRepository()
         {
-            throw new NotImplementedException();
+            _pizzas = new List<Pizza>();
         }
 
-        public Pizza Atualizar(Pizza modelo)
+        public Pizza Adicionar(Pizza pizza)
         {
-            throw new NotImplementedException();
+            _ultimoId ++;
+            pizza.Id = _ultimoId;
+            _pizzas.Add(pizza);
+            return pizza;
+        }
+
+        public Pizza Atualizar(Pizza pizza)
+        {
+            var pizzaExiste = _pizzas.Where(b => b.Id == pizza.Id).FirstOrDefault();
+
+            if (pizzaExiste == null)
+            {
+                throw new Exception("Não possível atualizar uma pizza inexistente");
+            }
+            _pizzas.Remove(pizzaExiste);
+            _pizzas.Add(pizza);
+
+            return pizza;
         }
 
         public Pizza ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            return _pizzas.Where(p => p.Id == id).FirstOrDefault();
         }
 
         public List<Pizza> ObterTodas()
         {
-            throw new NotImplementedException();
+            return _pizzas;
         }
 
         public void Remover(int id)
         {
-            throw new NotImplementedException();
+            var pizza = ObterPorId(id);
+
+            if (pizza == null)
+            {
+                throw new Exception("Não foi encontrado uma pizza para remover");
+            }
+
+            _pizzas.Remove(pizza);
         }
     }
 }

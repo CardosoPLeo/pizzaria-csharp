@@ -28,7 +28,7 @@ namespace PizzariaCSharp.Repository
 
         public Sabor ObterPorId(int id)
         {
-           return _sabores.Where(b => b.Id == id).FirstOrDefault();    
+           return _sabores.Where(s => s.Id == id).FirstOrDefault();    
         }
 
         public Sabor Atualizar(Sabor sabor)

@@ -5,29 +5,57 @@ namespace PizzariaCSharp.Repository
 {
     public class ClienteRepository : ICrudRepository<Cliente>
     {
-        public Cliente Adicionar(Cliente modelo)
+        private List<Cliente> _clientes;
+        
+        private int _ultimoId = 0;
+        
+        public ClienteRepository()
         {
-            throw new NotImplementedException();
+            _clientes = new List<Cliente>();
         }
 
-        public Cliente Atualizar(Cliente modelo)
+        public Cliente Adicionar(Cliente cliente)
         {
-            throw new NotImplementedException();
+            _ultimoId ++;
+            cliente.Id = _ultimoId;
+            _clientes.Add(cliente);
+            return cliente;
+        }
+
+        public Cliente Atualizar(Cliente cliente)
+        {
+            var clienteExiste = _clientes.Where(b => b.Id == cliente.Id).FirstOrDefault();
+
+            if (clienteExiste == null)
+            {
+                throw new Exception("Não possível atualizar uma cliente inexistente");
+            }
+            _clientes.Remove(clienteExiste);
+            _clientes.Add(cliente);
+
+            return cliente;
         }
 
         public Cliente ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            return _clientes.Where(c => c.Id == id).FirstOrDefault();
         }
 
         public List<Cliente> ObterTodas()
         {
-            throw new NotImplementedException();
+            return _clientes;
         }
 
         public void Remover(int id)
         {
-            throw new NotImplementedException();
+            var cliente = ObterPorId(id);
+
+            if (cliente == null)
+            {
+                throw new Exception("Não foi encontrado uma cliente para remover");
+            }
+
+            _clientes.Remove(cliente);
         }
     }
 }
