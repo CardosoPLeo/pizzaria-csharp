@@ -1,9 +1,10 @@
+using PizzariaCSharp.Controller.Interfaces;
 using PizzariaCSharp.Model;
 using PizzariaCSharp.Repository;
 
 namespace PizzariaCSharp.Controller
 {
-    public class BebidaController
+    public class BebidaController : ICrudController<Bebida>
     {
         private BebidaRepository _repositoryBebida;
 
@@ -12,30 +13,30 @@ namespace PizzariaCSharp.Controller
             _repositoryBebida = repositoryBebida;
         }
 
-        public List<Bebida> Obtertodos()
-        {
-            return _repositoryBebida.ObterTodas();
-        }
-
-        public Bebida ObterPorId(int id)
-        {
-            return _repositoryBebida.ObterPorId(id);
-        }
-        
-        public Bebida Adicionar(Bebida bebida)
+        public Bebida Adcionar(Bebida bebida)
         {
             return _repositoryBebida.Adcionar(bebida);
-        }
-
-        public void Remover(int id)
-        {
-             _repositoryBebida.Remover(id);
         }
 
         public Bebida Atualizar(int id, Bebida bebida)
         {
             bebida.Id = id;
             return _repositoryBebida.Atualizar(bebida);
+        }
+
+        public Bebida ObterPorId(int id)
+        {
+            return _repositoryBebida.ObterPorId(id);
+        }
+
+        public List<Bebida> ObterTodas()
+        {
+            return _repositoryBebida.ObterTodas();
+        }
+
+        public void Remover(int id)
+        {
+            _repositoryBebida.Remover(id);
         }
     }
 }
