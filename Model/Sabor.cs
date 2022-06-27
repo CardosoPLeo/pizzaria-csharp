@@ -5,6 +5,17 @@ namespace PizzariaCSharp.Model
         public int Id { get; set; }
         public string Descricao { get; set; } =  null;
         public string Observacao { get; set; } = null;
-        
+
+        public Sabor()
+        {
+            
+        }       
+       
+        public Sabor(string descricao, string observacao)
+        {
+            Descricao = descricao;
+            Observacao = observacao;
+        }
+
     }
 }
