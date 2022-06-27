@@ -1,7 +1,7 @@
 using PizzariaCSharp.Model;
 using PizzariaCSharp.Repository.Interfaces;
 
-namespace PedidoriaCSharp.Repository
+namespace PizzariaCSharp.Repository
 {
     public class PedidoRepository : ICrudRepository<Pedido>
     {
