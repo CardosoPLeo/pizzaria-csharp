@@ -7,7 +7,7 @@ namespace PizzariaCSharp.Model
         public Cliente Cliente { get; private set; }
         public List<Pizza> Pizzas { get; private set; }
         public List<Bebida> Bebidas { get; private set; }
-        //public double ValorTotal { get; private set; }
+        public double ValorTotal { get; private set; }
         
         public Pedido(Cliente cliente)
         {
@@ -31,7 +31,7 @@ namespace PizzariaCSharp.Model
 
         public double ObterValorTotal()
         {
-            return 10.00;
+            return ValorTotal;
         }
 
         public Pedido FinalizarPedido()
@@ -41,4 +41,4 @@ namespace PizzariaCSharp.Model
         }
 
     }
-}
+}   
